@@ -47,6 +47,7 @@ class WordModel(models.Model):
         SourceModel,
         on_delete=models.PROTECT,
         null=True, blank=True,
+        related_name='get_source',
         verbose_name='Источник',
     )
     category = models.ForeignKey(
@@ -76,14 +77,34 @@ class WordModel(models.Model):
         verbose_name='Метки',
         related_name='labels',
     )
+    # A field that displays how the user rates his knowledge of this word
+    knowledge_assessment = models.ManyToManyField(
+        UserModel,
+        through='WordUserKnowledgeRelation',
+        blank=True,
+    )
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(default=timezone.now)
 
     class Meta:
         verbose_name = 'Англо-русский словарь'
         verbose_name_plural = 'Англо-русский словарь'
+        ordering = ['words_eng']
+
+    def __str__(self):
+        return self.words_eng
 
 
 class WordLabelRelation(models.Model):
     word = models.ForeignKey(WordModel, on_delete=models.CASCADE)
     label = models.ForeignKey(LabelModel, on_delete=models.CASCADE)
+
+
+class WordUserKnowledgeRelation(models.Model):
+    word = models.ForeignKey(WordModel, on_delete=models.CASCADE)
+    user = models.ForeignKey(UserModel, on_delete=models.CASCADE)
+    knowledge_assessment = models.DecimalField(
+        max_digits=2,
+        decimal_places=0,
+        default=0,
+    )
