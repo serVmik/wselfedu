@@ -5,10 +5,10 @@
 <div>
   <h4>{{ title }}</h4>
 
-  <div class="pt-1"><a href="{% url 'english:word_choice' %}" class="btn btn-primary btn-md active" role="button" style="weight: 250px;">Упражнение "Изучаем слова"</a> </div>
-  <div class="pt-1"><a href="{% url 'english:words_create' %}" class="btn btn-primary btn-md active" role="button" style="width: 250px;">Добавить слово в словарь</a> </div>
+  <div class="pt-1"><a href="{% url 'english:word_choice' %}" class="btn btn-outline-primary btn-md" role="button" style="weight: 250px;">Упражнение "Изучаем слова"</a> </div>
+  <div class="pt-1"><a href="{% url 'english:words_create' %}" class="btn btn-outline-primary btn-md" role="button" style="width: 250px;">Добавить слово в словарь</a> </div>
   {% if user.is_superuser %}
-    <div class="pt-1"><a href="{% url 'form_crispy' %}" class="btn btn-primary btn-md active" role="button" style="width: 250px;">Django filter</a> </div>
+    <div class="pt-1"><a href="{% url 'study:home' %}" class="btn btn-outline-primary btn-md" role="button" style="width: 250px;">Django study</a> </div>
   {% endif %}
 </div><!-- End Home Page Content -->
 {% endblock %}q

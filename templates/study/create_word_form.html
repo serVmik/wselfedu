@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <h1>{% block title %}Create word by html form{% endblock %}</h1>
+
+  <form action="{% url 'study:create_word_html' %}" method="post">
+      {% csrf_token %}
+      <label for="create_words_eng">Слово на английском: </label>
+      <input id="create_words_eng" type="text" name="words_eng" value="{{ words_eng }}">
+      <br />
+      <label for="create_words_rus">Слово на русском: </label>
+      <input id="create_words_rus" type="text" name="words_rus" value="{{ words_rus }}">
+      <br />
+      <input type="submit" value="OK">
+    </form>
+{% endblock %}

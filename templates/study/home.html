@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<ul class="list-unstyled">
+  <li><a href="{% url 'study:create_word_html' %}" class="btn btn-outline-primary btn-md my-1" role="button">Create word by html form</a></li>
+  <li><a href="{% url 'study:create_word_crispy' %}" class="btn btn-outline-primary btn-md my-1" role="button">Create word by crispy form</a></li>
+</ul>
+{% endblock %}

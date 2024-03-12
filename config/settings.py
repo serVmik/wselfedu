@@ -120,9 +120,10 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db-wse-develop.sqlite3',
+            'NAME': BASE_DIR / 'db-wse-study.sqlite3',
         }
     }
+
 # End Database
 
 # Authentication

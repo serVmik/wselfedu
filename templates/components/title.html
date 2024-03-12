@@ -1,1 +1,5 @@
-<title>{% if title.title_name %}{{ title.title_name }}{% else %}{{ title }}{% endif %}</title>
+{% if title %}
+  <title>{% if title.title_name %}{{ title.title_name }}{% else %}{{ title }}{% endif %}</title>
+{% else %}
+  <title>{% block title %}{% endblock %}</title>
+{% endif %}

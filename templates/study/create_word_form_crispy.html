@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <h1>{% block title %}Create word by crispy form{% endblock %}</h1>
+  {% crispy form %}
+{% endblock %}
